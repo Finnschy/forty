@@ -5,7 +5,6 @@ const DrinkCard = (props) => {
                 <div className="GinDrink">
                 <img src={props.drinksData.strDrinkThumb} />
                 <p>{props.drinksData.strDrink}</p>
-               
                 </div>
         </section>
     );
