@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import DrinkCard from './DrinkCard';
 import Footer from './Footer';
 import Header from './Header';
 class VodkaSeite extends Component {
@@ -8,6 +9,7 @@ class VodkaSeite extends Component {
             <section className="VodkaSeite">
                 <Header />
                 <h1>Vodka</h1>
+                <DrinkCard />
                 <Footer />
             </section>
         );
