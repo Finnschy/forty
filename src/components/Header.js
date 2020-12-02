@@ -1,11 +1,10 @@
 import {
     Link
-  } from "react-router-dom";
+} from "react-router-dom";
 
 const Header = () => {
-    return (  
+    return (
         <header className="header">
-            {/* <h1>Header</h1> */}
             <nav className="headerNav">
                 <ul>
                     <li >
@@ -25,18 +24,18 @@ const Header = () => {
             </div>
 
             <div className="searchtype">
-            <ul >
-                <li>
-                    <input type="text" id="typeSomething" placeholder="type something"/>
-                </li>
-                 <li >
-                    <button id="search" onClick="search">Search</button>
+                <ul >
+                    <li>
+                        <input type="text" id="typeSomething" placeholder="type something" />
+                    </li>
+                    <li >
+                        <button id="search" onClick="search">Search</button>
                     </li>
                 </ul>
-                </div>
-                <div className="removImg"></div>
+            </div>
+            <div className="removImg"></div>
         </header>
     );
 }
- 
+
 export default Header;
