@@ -46,3 +46,15 @@ class GinSeite extends Component {
 }
 
 export default GinSeite;
+
+
+/*
+Tipps falls mit React und API gearbeitet wird:
+Styles für die boxen können mit Modulus gemacht werden.
+{data.map((e, i) => <div className={`style${Math.floor((i % 6) + 1)} ${i % 2 == 0 ? 'left' : 'right'}`} key={e.id}>
+			{e.first_name}
+			</div>)}
+So bekommt jedes Element 2 Klassen. style1 bis style6 und left oder right. 
+So kann man mit CSS style1 bis 6 die Hintergrundfarben geben und mit left oder right die flex-direction ändern.
+
+*/
