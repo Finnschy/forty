@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DrinkCard from './DrinkCard';
 import Footer from './Footer';
 import Header from './Header';
-class NoAlkoholSeite extends Component {
+class RandomDrink extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,7 +12,7 @@ class NoAlkoholSeite extends Component {
         }
     }
     componentDidMount() {
-        fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic")
+        fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
             .then(res => res.json())
             .then(
                 (result) => {
@@ -31,7 +31,7 @@ class NoAlkoholSeite extends Component {
     }
     render() {
         return (
-            <section className="NoAlkoholSeite">
+            <section className="RandomDrink">
                 <Header />
                 {this.state.isLoaded ?
                     this.state.items.drinks.map(drinks => <DrinkCard
@@ -44,5 +44,5 @@ class NoAlkoholSeite extends Component {
         );
     }
 }
- 
-export default NoAlkoholSeite;
+
+export default RandomDrink;
