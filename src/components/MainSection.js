@@ -6,9 +6,8 @@ const MainSection = () => {
     return (  
         <section className="MainSection">
 
-        
             <Link to="/gin" className="Ginlink">Gin</Link>
-        
+            
             <Link to="/vodka" className="Vodkalink">Vodka</Link>
          
             <Link to="/rum" className="Rumlink">Rum</Link>
@@ -17,7 +16,7 @@ const MainSection = () => {
            
             <Link to="/nonalcoholic"  className="Nonlink">Non-Alcoholic</Link>
             
-            <Link to="/randomdrink" className="Randomlink">Zufälliges Getränk</Link>
+            <Link to="/randomdrink" className="Randomlink">Random Drink</Link>
             
         </section>
     );

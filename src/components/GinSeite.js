@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import DrinkCard from './DrinkCard';
 import Footer from './Footer';
 import Header from './Header';
-
 import Model from './Model'
+
 class GinSeite extends Component {
     constructor(props) {
         super(props);
@@ -13,7 +13,7 @@ class GinSeite extends Component {
             items: [],
             model: {show: false, items: null}
 
-        }
+        };
     }
     componentDidMount() {
         fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin")
@@ -33,28 +33,45 @@ class GinSeite extends Component {
                 }
             )
     }
-    toggleModel = (props) => {
-        this.state({model: {...props}
-        });
+    toggleModel = (items) => {
+
+       const modal = {show:false , items:null};
+       if (items){
+           modal.show = true ;
+           modal.items = {...items};
+       }
+       this.setState({model: modal})
+          
+      
     };
 
 
     render() {
-        return (<>
-            {this.state.model.show && <Model />}
+            console.log(this.state.model)
+        return (
+        <div>
+            {this.state.model.show && <Model
+             data= {this.state.model.items}
+             toggle={this.toggleModel}
+             />}
             <section className="GinSeite">
                 <Header />
                 {this.state.isLoaded ?
                     this.state.items.drinks.map(drinks => <DrinkCard
                         key={drinks.idDrink}
                         drinksData={drinks}
-                        toggleModel= {this.toggleModel}
+                        toggleModal= {() => this.toggleModel(drinks)}
                     />)
-                    : <div>Loading ...</div>}
+                    : <div>Loading ...</div>
+                    }
                 <Footer />
             </section>
-        );
+        </div>);
     }
 }
+    
+
 
 export default GinSeite;
+
+

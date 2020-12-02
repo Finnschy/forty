@@ -5,7 +5,6 @@ import MainSection from './MainSection';
 const Home = () => {
     return (  
         <main>
-            <h1>Home</h1>
             <Header />
             <MainSection />
             <Footer />
