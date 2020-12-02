@@ -32,7 +32,7 @@ class VodkaSeite extends Component {
     render() {
         return (
             <section className="VodkaSeite">
-                <Header />
+             <Header /> 
                 {this.state.isLoaded ?
                     this.state.items.drinks.map(drinks => <DrinkCard
                         key={drinks.idDrink}
