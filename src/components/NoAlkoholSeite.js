@@ -3,13 +3,42 @@ import DrinkCard from './DrinkCard';
 import Footer from './Footer';
 import Header from './Header';
 class NoAlkoholSeite extends Component {
-    state = {  }
-    render() { 
-        return (  
+    constructor(props) {
+        super(props);
+        this.state = {
+            error: null,
+            isLoaded: false,
+            items: []
+        }
+    }
+    componentDidMount() {
+        fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        isLoaded: true,
+                        items: result
+                    });
+                },
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                }
+            )
+    }
+    render() {
+        return (
             <section className="NoAlkoholSeite">
                 <Header />
-                <h1>NonAlcoholic</h1>
-                <DrinkCard />
+                {this.state.isLoaded ?
+                    this.state.items.drinks.map(drinks => <DrinkCard
+                        key={drinks.idDrink}
+                        drinksData={drinks}
+                    />)
+                    : <div>Loading ...</div>}
                 <Footer />
             </section>
         );
