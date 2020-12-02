@@ -8,7 +8,7 @@ const Header = () => {
             <nav className="headerNav">
                 <ul>
                     <li >
-                        <Link className="forty" to="/">Forty</Link>
+                        <Link className="forty" to="/">FORTY</Link>
                     </li>
                     <li >
                         <Link className="menu" to="/">MENU</Link>
@@ -17,22 +17,14 @@ const Header = () => {
             </nav>
 
             <div className="Searchdiv">
-                <ul>
-                    <li className="cocktil"> Cocktails & Getränke!</li>
-                    <li className="welcome">Herzlich Willkommen in der Welt der Cocktails und Getränke!</li>
-                </ul>
+                <h1>Cocktails & Getränke!</h1>
+                <p>Herzlich Willkommen in der Welt der Cocktails und Getränke!</p>
+                <form action="">
+                    <input type="text" id="typeSomething" placeholder="type something" />
+                    <button id="search" onClick="search">Search</button>
+                </form>
             </div>
 
-            <div className="searchtype">
-                <ul >
-                    <li>
-                        <input type="text" id="typeSomething" placeholder="type something" />
-                    </li>
-                    <li >
-                        <button id="search" onClick="search">Search</button>
-                    </li>
-                </ul>
-            </div>
             <div className="removImg"></div>
         </header>
     );
