@@ -33,16 +33,19 @@ class NoAlkoholSeite extends Component {
         return (
             <section className="NoAlkoholSeite">
                 <Header />
-                {this.state.isLoaded ?
-                    this.state.items.drinks.map(drinks => <DrinkCard
-                        key={drinks.idDrink}
-                        drinksData={drinks}
-                    />)
-                    : <div>Loading ...</div>}
+
+                <div className="gridContainer">
+                    {this.state.isLoaded ?
+                        this.state.items.drinks.map(drinks => <DrinkCard
+                            key={drinks.idDrink}
+                            drinksData={drinks}
+                        />)
+                        : <div>Loading ...</div>}
+                </div>
                 <Footer />
             </section>
         );
     }
 }
- 
+
 export default NoAlkoholSeite;

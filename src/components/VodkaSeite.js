@@ -32,13 +32,15 @@ class VodkaSeite extends Component {
     render() {
         return (
             <section className="VodkaSeite">
-             <Header /> 
-                {this.state.isLoaded ?
-                    this.state.items.drinks.map(drinks => <DrinkCard
-                        key={drinks.idDrink}
-                        drinksData={drinks}
-                    />)
-                    : <div>Loading ...</div>}
+                <Header />
+                <div className="gridContainer">
+                    {this.state.isLoaded ?
+                        this.state.items.drinks.map(drinks => <DrinkCard
+                            key={drinks.idDrink}
+                            drinksData={drinks}
+                        />)
+                        : <div>Loading ...</div>}
+                </div>
                 <Footer />
             </section>
         );

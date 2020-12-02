@@ -23,7 +23,6 @@ font-family: 'Playfair Display', serif;
     justify-content: space-between;
     padding-left: 3%;
     padding-right: 3%;
-    
 }
 
 .forty, .menu {
@@ -76,7 +75,7 @@ font-family: 'Playfair Display', serif;
     font-weight: bold;
 }
 
-.Searchdiv [type=text]:focus , #search:focus {
+.Searchdiv [type=text]:focus, #search:focus {
     outline: none;
 }
 
@@ -107,29 +106,74 @@ font-family: 'Playfair Display', serif;
     transition: background-color 1s ease;
 }
 
-.Ginlink {
+.Ginlink, .style1 {
     background-color: #6FC3DF;
 }
 
-.Vodkalink {
+.Vodkalink, .style2 {
     background-color: #8D82C4;
 }
 
-.Rumlink {
+.Rumlink, .style3 {
     background-color: #EC8D81;
 }
 
-.Scotchlink {
+.Scotchlink, .style4 {
     background-color: #E7B788;
 }
 
-.Nonlink {
+.Nonlink, .style5 {
     background-color: #8EA9E8;
 }
 
-.Randomlink {
+.Randomlink, .style6 {
     background-color: #87C5A4;
 }
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+/* .outer {
+    padding-left: 5rem;
+    writing-mode: tb-rl;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner {
+    transform: rotate(180deg);
+    text-align: center;
+    font-size: 1.6rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+} */
+
+.DrinkCard img {
+    max-height: 50vh;
+    /* width: 100%; */
+    object-fit: contain;
+}
+
+/* .left {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+} */
+
+
+
+
+
+
+
 
 /* Footer Style */
 
@@ -152,19 +196,4 @@ font-family: 'Playfair Display', serif;
     margin-top: 2.5%;
     font-size: 1.7em;
     font-family: 'Montserrat', sans-serif;
-}
-
-.DrinkCard {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.DrinkCardDiv {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.DrinkCardDiv img {
-    height: 50vh;
-    width: 90%;
 }

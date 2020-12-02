@@ -2,9 +2,11 @@ const DrinkCard = (props) => {
     console.log(props);
     return (
         <section className="DrinkCard">
-            <div className="DrinkCardDiv">
-                <img src={props.drinksData.strDrinkThumb} alt="alcoholic drink"/>
-                <p>{props.drinksData.strDrink}</p>
+                <div className="gridItem">
+                    <img src={props.drinksData.strDrinkThumb} alt="alcoholic drink" />
+                    <div className="outer">
+                        <p className="inner">{props.drinksData.strDrink}</p>
+                    </div>
                 </div>
         </section>
     );
