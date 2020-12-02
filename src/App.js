@@ -9,7 +9,7 @@ import VodkaSeite from "./components/VodkaSeite";
 import RumSeite from "./components/RumSeite";
 import ScotchSeite from "./components/ScotchSeite";
 import NoAlkoholSeite from "./components/NoAlkoholSeite";
-import ZufaelligerDrinkSeite from "./components/ZufaelligerDrinkSeite"
+import RandomDrink from "./components/RandomDrinkSeite"
 import Home from './components/Home';
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
         <Route path="/rum" component={RumSeite} />
         <Route path="/scotch" component={ScotchSeite} />
         <Route path="/nonalcoholic" component={NoAlkoholSeite} />
-        <Route path="/randomdrink" component={ZufaelligerDrinkSeite} />
+        <Route path="/randomdrink" component={RandomDrink} />
         <Route path="/" exact component={Home} />
       </Switch>
     </Router>
