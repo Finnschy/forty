@@ -5,12 +5,20 @@ import {
 const MainSection = () => {
     return (  
         <section className="MainSection">
-            <Link to="/gin">Gin</Link>
-            <Link to="/vodka">Vodka</Link>
-            <Link to="/rum">Rum</Link>
-            <Link to="/scotch">Scotch</Link>
-            <Link to="/nonalcoholic">Non-Alcoholic</Link>
-            <Link to="/randomdrink">Random Drink</Link>
+
+        
+            <Link to="/gin" className="Ginlink">Gin</Link>
+        
+            <Link to="/vodka" className="Vodkalink">Vodka</Link>
+         
+            <Link to="/rum" className="Rumlink">Rum</Link>
+          
+            <Link to="/scotch" className="Scotchlink">Scotch</Link>
+           
+            <Link to="/nonalcoholic"  className="Nonlink">Non-Alcoholic</Link>
+            
+            <Link to="/randomdrink" className="Randomlink">Zufälliges Getränk</Link>
+            
         </section>
     );
 }

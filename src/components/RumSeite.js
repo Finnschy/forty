@@ -3,17 +3,46 @@ import DrinkCard from './DrinkCard';
 import Footer from './Footer';
 import Header from './Header';
 class RumSeite extends Component {
-    state = {  }
-    render() { 
-        return (  
+    constructor(props) {
+        super(props);
+        this.state = {
+            error: null,
+            isLoaded: false,
+            items: []
+        }
+    }
+    componentDidMount() {
+        fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Rum")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        isLoaded: true,
+                        items: result
+                    });
+                },
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                }
+            )
+    }
+    render() {
+        return (
             <section className="RumSeite">
                 <Header />
-                <h1>Rum</h1>
-                <DrinkCard />
+                {this.state.isLoaded ?
+                    this.state.items.drinks.map(drinks => <DrinkCard
+                        key={drinks.idDrink}
+                        drinksData={drinks}
+                    />)
+                    : <div>Loading ...</div>}
                 <Footer />
             </section>
         );
     }
 }
- 
+
 export default RumSeite;
