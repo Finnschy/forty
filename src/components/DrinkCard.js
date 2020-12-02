@@ -1,5 +1,7 @@
 const DrinkCard = (props) => {
-    console.log(props);
+   /*  console.log(props); */
+
+   
     return (
         <section className="DrinkCard">
             <div className="DrinkCardDiv">
