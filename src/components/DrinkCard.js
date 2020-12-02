@@ -6,6 +6,10 @@ const DrinkCard = (props) => {
                 <img src={props.drinksData.strDrinkThumb} />
                 <p>{props.drinksData.strDrink}</p>
                 </div>
+              
+          
+            
+            
         </section>
     );
 }
