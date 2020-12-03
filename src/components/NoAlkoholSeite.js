@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import DrinkCard from './DrinkCard';
 import Footer from './Footer';
 import Header from './Header';
+import Model from './Model'
+
 class NoAlkoholSeite extends Component {
     constructor(props) {
         super(props);
         this.state = {
             error: null,
             isLoaded: false,
-            items: []
+            items: [],
+            model: {show: false, items: null}
         }
     }
     componentDidMount() {
@@ -29,18 +32,35 @@ class NoAlkoholSeite extends Component {
                 }
             )
     }
+
+    toggleModel = (items) => {
+
+        const modal = {show:false , items:null};
+        if (items){
+            modal.show = true ;
+            modal.items = {...items};
+        }
+        this.setState({model: modal})
+     }
     render() {
         return (
+            <div>
+            {this.state.model.show && <Model
+             data= {this.state.model.items}
+             toggle={this.toggleModel}
+             />} 
             <section className="NoAlkoholSeite">
                 <Header />
                 {this.state.isLoaded ?
                     this.state.items.drinks.map(drinks => <DrinkCard
                         key={drinks.idDrink}
                         drinksData={drinks}
+                        toggleModal= {() => this.toggleModel(drinks)}
                     />)
                     : <div>Loading ...</div>}
                 <Footer />
             </section>
+            </div>
         );
     }
 }

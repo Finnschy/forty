@@ -35,25 +35,22 @@ class GinSeite extends Component {
     }
     toggleModel = (items) => {
 
-       const modal = {show:false , items:null};
-       if (items){
-           modal.show = true ;
-           modal.items = {...items};
-       }
-       this.setState({model: modal})
-          
-      
-    };
-
+        const modal = {show:false , items:null};
+        if (items){
+            modal.show = true ;
+            modal.items = {...items};
+        }
+        this.setState({model: modal})
+     }
 
     render() {
-            console.log(this.state.model)
+            /* console.log(this.state.items) */
         return (
         <div>
             {this.state.model.show && <Model
              data= {this.state.model.items}
              toggle={this.toggleModel}
-             />}
+             />} 
             <section className="GinSeite">
                 <Header />
                 {this.state.isLoaded ?
