@@ -34,14 +34,16 @@ class GinSeite extends Component {
             )
     }
     toggleModel = (items) => {
-
+       /*  console.log(items) */
         const modal = {show:false , items:null};
+        console.log(modal)
         if (items){
             modal.show = true ;
             modal.items = {...items};
         }
-        this.setState({model: modal})
+             this.setState({model: modal})
      }
+    
 
     render() {
             /* console.log(this.state.items) */

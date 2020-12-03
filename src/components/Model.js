@@ -31,12 +31,10 @@ class Model extends React.Component {
                 error
             });
         })
-        
-
     }
     
     render(){
-         console.log(this.state) 
+         /* console.log(this.state)  */
     return(
 
         
@@ -54,8 +52,6 @@ class Model extends React.Component {
                 {this.state.error.message}
             </div>
             }
-
-           
         </div>
     )
 }
