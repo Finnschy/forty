@@ -29,6 +29,8 @@ class ScotchSeite extends Component {
                 }
             )
     }
+
+    
     render() {
         return (
             <section className="ScotchSeite">

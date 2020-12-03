@@ -9,20 +9,24 @@ font-family: 'Playfair Display', serif;
 * {
     padding: 0;
     margin: 0;
+    cursor: default;
+}
+
+a {
+    cursor: pointer;
 }
 
 .header {
     background-color: #2A2F4A;
     color: white;
-    min-height: 90vh;
+    border: 1px solid #2A2F4A;
 }
 
 .headerNav ul {
     list-style-type: none;
     display: flex;
     justify-content: space-between;
-    padding-left: 3%;
-    padding-right: 3%;
+    padding: 2% 3%;
 }
 
 .forty, .menu {
@@ -42,7 +46,7 @@ font-family: 'Playfair Display', serif;
 
 .Searchdiv {
     padding-left: 3%;
-    margin-top: 10%;
+    margin-top: 6.5%;
 }
 
 .Searchdiv h1 {
@@ -106,27 +110,27 @@ font-family: 'Playfair Display', serif;
     transition: background-color 1s ease;
 }
 
-.Ginlink, .style1 {
+.Ginlink, .DrinkCard:nth-child(6n+1) {
     background-color: #6FC3DF;
 }
 
-.Vodkalink, .style2 {
+.Vodkalink, .DrinkCard:nth-child(6n+2) {
     background-color: #8D82C4;
 }
 
-.Rumlink, .style3 {
+.Rumlink, .DrinkCard:nth-child(6n+3) {
     background-color: #EC8D81;
 }
 
-.Scotchlink, .style4 {
+.Scotchlink, .DrinkCard:nth-child(6n+4) {
     background-color: #E7B788;
 }
 
-.Nonlink, .style5 {
+.Nonlink, .DrinkCard:nth-child(6n+5) {
     background-color: #8EA9E8;
 }
 
-.Randomlink, .style6 {
+.Randomlink, .DrinkCard:nth-child(6n+6) {
     background-color: #87C5A4;
 }
 
@@ -135,44 +139,102 @@ font-family: 'Playfair Display', serif;
     grid-template-columns: repeat(2, 1fr);
 }
 
+.DrinkCardDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
-/* .outer {
-    padding-left: 5rem;
+.outer {
+    padding-left: 2rem;
     writing-mode: tb-rl;
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 .inner {
     transform: rotate(180deg);
     text-align: center;
-    font-size: 1.6rem;
+    font-size: 1.75rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-} */
+    color: #fff;
+    height: 15rem;
+}
+
+.DrinkCard:nth-child(2n) .DrinkCardDiv {
+    flex-direction: row-reverse;
+}
 
 .DrinkCard img {
     max-height: 50vh;
-    /* width: 100%; */
+    object-fit: contain;
+    padding: 5rem;
+}
+
+/* Modal Style */
+
+.box {
+    width: 950px;
+    height: 500px;
+    background: #2A2F4A;
+    position: fixed;
+    top: 10px;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    margin: 10% auto;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+}
+
+.zutatenImg {
+    width: 50%;
+    display: flex;
+    padding: 0 3rem;
+}
+
+.zutatenImg img {
+    width: 100%;
     object-fit: contain;
 }
 
-/* .left {
-    display: flex;
-    flex-direction: column-reverse;
+.zutaten {
+    width: 50%;
+    color: white;
+    align-self: center;
+    /* padding-right: 2rem;
+    margin-right: 2rem; */
+    font-family: 'Montserrat', sans-serif;
 }
 
-.right {
-    display: flex;
-    flex-direction: column;
-} */
+.zutaten h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    align-self: center;
+    margin-bottom: 2rem;
+}
 
+.zutaten ul {
+    list-style-type: none;
+    line-height: 1.8rem;
+}
 
+.zutaten p {
+    margin-top: 2rem;
+    line-height: 1.4rem;
+    width: 90%;
+}
 
-
-
-
+.closebox {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.3rem;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
 
 
 /* Footer Style */

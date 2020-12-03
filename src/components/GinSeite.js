@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 import DrinkCard from './DrinkCard';
 import Footer from './Footer';
 import Header from './Header';
+import Model from './Model'
+
 class GinSeite extends Component {
     constructor(props) {
         super(props);
         this.state = {
             error: null,
             isLoaded: false,
-            items: []
-        }
+            items: [],
+            model: { show: false, items: null }
+
+        };
     }
     componentDidMount() {
         fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin")
@@ -29,42 +33,49 @@ class GinSeite extends Component {
                 }
             )
     }
+    toggleModel = (items) => {
+        const modal = { show: false, items: null };
+        if (items) {
+            modal.show = true;
+            modal.items = { ...items };
+        
+        }
+        this.setState({ model: modal })
+
+
+    };
+
+
     render() {
+        // console.log(this.state.model)
+
         return (
-            <section className="GinSeite">
-                <Header />
-                <div className="gridContainer">
-                {this.state.isLoaded ?
-                    this.state.items.drinks.map(drinks => <DrinkCard
-                        key={drinks.idDrink}
-                        drinksData={drinks}
-                        
-                    />)
-                    : <div>Loading ...</div>}
-                </div>
-                <Footer />
-            </section>
-        );
+            <div>
+                {this.state.model.show && <Model
+                    data={this.state.model.items}
+                    toggle={this.toggleModel}
+                    drinksID={this.state.model.drinkID}
+                />}
+                <section className="GinSeite">
+                    <Header />
+                    <div className="gridContainer">
+                        {this.state.isLoaded ?
+                            this.state.items.drinks.map(drinks => <DrinkCard
+                                key={drinks.idDrink}
+                                drinksData={drinks}
+                                toggleModal={() => this.toggleModel(drinks)}
+                            />)
+                            : <div>Loading ...</div>
+                        }
+                    </div>
+                    <Footer />
+                </section>
+            </div>);
+
     }
 }
 
+
+
 export default GinSeite;
 
-
-/*
-Tipps falls mit React und API gearbeitet wird:
-Styles für die boxen können mit Modulus gemacht werden.
-            {data.map((e, i) => <div className={`style${Math.floor((i % 6) + 1)} ${i % 2 == 0 ? 'left' : 'right'}`} 
-                    key={e.id}>
-			        {e.first_name}
-			        </div>)}
-So bekommt jedes Element 2 Klassen. style1 bis style6 und left oder right. 
-So kann man mit CSS style1 bis 6 die Hintergrundfarben geben und mit left oder right die flex-direction ändern.
-
-
-
-
-onlick modal id abrufen
-mit dieser id dann einen erneuten api aufruf starten 
-
-*/
