@@ -58,7 +58,7 @@ a {
     text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
-    margin-bottom: 10rem;
+    margin-bottom: 7rem;
 }
 
 .Searchdiv [type=text] {
@@ -67,16 +67,28 @@ a {
     border: none;
     display: inline-block;
     margin-right: 2.5rem;
+    margin-bottom: 5rem;
+    font-size: 1.5rem;
+    cursor: auto;
 }
 
 #search {
-    padding: 1rem 1.5rem;
+    padding: 1rem 3rem;
     border-radius: .5rem;
     border: none;
     background: #6FC3DF;
     color: #2A2F4A;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: bold;
+    cursor: pointer;
+}
+
+#search:hover {
+    box-shadow: 0px 0px 5px 0px #6FC3DF;
+}
+
+#search:active {
+    box-shadow: inset 0px 0px 15px 0px #2A2F4A;
 }
 
 .Searchdiv [type=text]:focus, #search:focus {
@@ -84,11 +96,19 @@ a {
 }
 
 .removImg {
-    background: url(../src/assets/img/removebg-preview1.png) center / cover no-repeat;
-    height: 15vh;
+    background: url(../src/assets/img/arrowdown.svg) center / contain no-repeat;
+    height: 5vh;
     width: 5vh;
     margin: 5rem auto;
+    animation: upDown 2s ease infinite;
 }
+
+@keyframes upDown {
+    0%, 100% {
+
+    }
+}
+
 
 /*  ////////////////////////  */
 
@@ -145,6 +165,10 @@ a {
     align-items: center;
 }
 
+.DrinkCardDiv img {
+    cursor: pointer;
+}
+
 .outer {
     padding-left: 2rem;
     writing-mode: tb-rl;
@@ -189,6 +213,10 @@ a {
     justify-content: center;
 }
 
+.boxFlex {
+    display: flex;
+}
+
 .zutatenImg {
     width: 50%;
     display: flex;
@@ -204,8 +232,6 @@ a {
     width: 50%;
     color: white;
     align-self: center;
-    /* padding-right: 2rem;
-    margin-right: 2rem; */
     font-family: 'Montserrat', sans-serif;
 }
 

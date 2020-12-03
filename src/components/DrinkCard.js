@@ -1,6 +1,8 @@
 import React from 'react'
 
-const DrinkCard = ({ drinksData, toggleModal}) => {
+
+const DrinkCard = ({drinksData, toggleModal}) => {
+
     return (
         <section className="DrinkCard">
             <div className="DrinkCardDiv" onClick={() => { toggleModal && toggleModal(drinksData) }}>
@@ -10,7 +12,9 @@ const DrinkCard = ({ drinksData, toggleModal}) => {
                 </div>
             </div>
         </section>
-    );
+        
+    )
 };
+
 
 export default DrinkCard;

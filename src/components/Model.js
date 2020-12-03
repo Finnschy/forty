@@ -1,33 +1,78 @@
 
 import React from 'react'
-const Model = (props) => {
-    console.log(props)
-    return (
 
-        <div className="box">
-            <div className="zutatenImg">
-                <img src="https://picsum.photos/900" alt="" />
-            </div>
+class Model extends React.Component {
 
-            <div className="zutaten">
-                <h2>3-Mile Long Island Iced Tea</h2>
-                <ul>
-                    <li>DrinksID: {props.data.idDrink}</li>
-                    <li>1/2 oz Gin</li>
-                    <li>1/2 oz Light rum</li>
-                    <li>1/2 oz Tequila</li>
-                    <li>1/2 oz Triple sec</li>
-                    <li>1/2 oz Vodka</li>
-                    <li>Coca-Cola</li>
-                    <li>1 – 2 dash Sweet and sour</li>
-                    <li>1 wedge  Bitters</li>
-                    <li>Lemon</li>
-                </ul>
-                <p>Fill 14oz glass with ice and alcohol. Fill 2/3 glass with cola and remainder with sweet & sour. Top with dash of bitters and lemon wedge.</p>
+    state = {
+        isLoaded: false,
+        data: null,
+        error: null
+    }
+    componentDidMount() {
+        /* console.log(this.props)  */
+        fetch("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + this.props.data.idDrink)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    let Frinalresult = null
+                    if (result.drinks && result.drinks.length > 0) {
+                        Frinalresult = result.drinks[0]
+                    }
+                    this.setState({
+                        isLoaded: true,
+                        data: Frinalresult
+                    });
+                }
+
+            )
+            .catch((error) => {
+                this.setState({
+                    isLoaded: true,
+                    error
+                });
+            })
+
+
+    }
+
+    render() {
+        console.log(this.state)
+        return (
+
+
+            <div className="box">
+                {/* <div className="closebox" onClick={() => this.props.toggle()}>X</div> */}
+                {this.state.data && this.state.isLoaded &&
+                    <div className="boxFlex">
+                        <div className="zutatenImg">
+                            <img src={this.state.data.strDrinkThumb} alt="" />
+                        </div>
+                        <div className="zutaten">
+                            <h2>{this.state.data.strDrink}</h2>
+                            <ul>
+                                <li>{this.state.data.strIngredient1}</li>
+                                <li>{this.state.data.strIngredient2}</li>
+                                <li>{this.state.data.strIngredient3}</li>
+                                <li>{this.state.data.strIngredient4}</li>
+                                <li>{this.state.data.strIngredient5}</li>
+                                <li>{this.state.data.strIngredient6}</li>
+                                <li>{this.state.data.strIngredient7}</li>
+                                <li>{this.state.data.strIngredient8}</li>
+                                <li>{this.state.data.strIngredient9}</li>
+                            </ul>
+                            <p>{this.state.data.strInstructions}</p>
+                        </div>
+                    </div>
+                }
+                {this.state.error && this.state.isLoaded &&
+                    <div>
+                        {this.state.error.message}
+                    </div>
+                }
+                <div className="closebox" onClick={() => this.props.toggle()}>&#10005;</div>
             </div>
-            <div className="closebox" onClick={() => props.toggle()}>&#10005;</div>
-        </div>
-    )
+        )
+    }
 }
 export default Model;
 

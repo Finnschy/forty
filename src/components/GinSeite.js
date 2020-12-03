@@ -38,23 +38,18 @@ class GinSeite extends Component {
         if (items) {
             modal.show = true;
             modal.items = { ...items };
-        
+
         }
         this.setState({ model: modal })
-
-
-    };
-
+    }
 
     render() {
-        // console.log(this.state.model)
-
+        /* console.log(this.state.items) */
         return (
             <div>
                 {this.state.model.show && <Model
                     data={this.state.model.items}
                     toggle={this.toggleModel}
-                    drinksID={this.state.model.drinkID}
                 />}
                 <section className="GinSeite">
                     <Header />
@@ -71,7 +66,6 @@ class GinSeite extends Component {
                     <Footer />
                 </section>
             </div>);
-
     }
 }
 
