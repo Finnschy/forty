@@ -9,21 +9,24 @@ font-family: 'Playfair Display', serif;
 * {
     padding: 0;
     margin: 0;
+    cursor: default;
+}
+
+a {
+    cursor: pointer;
 }
 
 .header {
     background-color: #2A2F4A;
     color: white;
-    min-height: 90vh;
+    border: 1px solid #2A2F4A;
 }
 
 .headerNav ul {
     list-style-type: none;
     display: flex;
     justify-content: space-between;
-    padding-left: 3%;
-    padding-right: 3%;
-    
+    padding: 2% 3%;
 }
 
 .forty, .menu {
@@ -43,7 +46,7 @@ font-family: 'Playfair Display', serif;
 
 .Searchdiv {
     padding-left: 3%;
-    margin-top: 10%;
+    margin-top: 6.5%;
 }
 
 .Searchdiv h1 {
@@ -55,7 +58,7 @@ font-family: 'Playfair Display', serif;
     text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
-    margin-bottom: 10rem;
+    margin-bottom: 7rem;
 }
 
 .Searchdiv [type=text] {
@@ -64,28 +67,48 @@ font-family: 'Playfair Display', serif;
     border: none;
     display: inline-block;
     margin-right: 2.5rem;
+    margin-bottom: 5rem;
+    font-size: 1.5rem;
+    cursor: auto;
 }
 
 #search {
-    padding: 1rem 1.5rem;
+    padding: 1rem 3rem;
     border-radius: .5rem;
     border: none;
     background: #6FC3DF;
     color: #2A2F4A;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: bold;
+    cursor: pointer;
 }
 
-.Searchdiv [type=text]:focus , #search:focus {
+#search:hover {
+    box-shadow: 0px 0px 5px 0px #6FC3DF;
+}
+
+#search:active {
+    box-shadow: inset 0px 0px 15px 0px #2A2F4A;
+}
+
+.Searchdiv [type=text]:focus, #search:focus {
     outline: none;
 }
 
 .removImg {
-    background: url(../src/assets/img/removebg-preview1.png) center / cover no-repeat;
-    height: 15vh;
+    background: url(../src/assets/img/arrowdown.svg) center / contain no-repeat;
+    height: 5vh;
     width: 5vh;
     margin: 5rem auto;
+    animation: upDown 2s ease infinite;
 }
+
+@keyframes upDown {
+    0%, 100% {
+
+    }
+}
+
 
 /*  ////////////////////////  */
 
@@ -107,29 +130,138 @@ font-family: 'Playfair Display', serif;
     transition: background-color 1s ease;
 }
 
-.Ginlink {
+.Ginlink, .DrinkCard:nth-child(6n+1) {
     background-color: #6FC3DF;
 }
 
-.Vodkalink {
+.Vodkalink, .DrinkCard:nth-child(6n+2) {
     background-color: #8D82C4;
 }
 
-.Rumlink {
+.Rumlink, .DrinkCard:nth-child(6n+3) {
     background-color: #EC8D81;
 }
 
-.Scotchlink {
+.Scotchlink, .DrinkCard:nth-child(6n+4) {
     background-color: #E7B788;
 }
 
-.Nonlink {
+.Nonlink, .DrinkCard:nth-child(6n+5) {
     background-color: #8EA9E8;
 }
 
-.Randomlink {
+.Randomlink, .DrinkCard:nth-child(6n+6) {
     background-color: #87C5A4;
 }
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.DrinkCardDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.DrinkCardDiv img {
+    cursor: pointer;
+}
+
+.outer {
+    padding-left: 2rem;
+    writing-mode: tb-rl;
+    display: flex;
+    align-items: center;
+}
+
+.inner {
+    transform: rotate(180deg);
+    text-align: center;
+    font-size: 1.75rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #fff;
+    height: 15rem;
+}
+
+.DrinkCard:nth-child(2n) .DrinkCardDiv {
+    flex-direction: row-reverse;
+}
+
+.DrinkCard img {
+    max-height: 50vh;
+    object-fit: contain;
+    padding: 5rem;
+}
+
+/* Modal Style */
+
+.box {
+    width: 950px;
+    height: 500px;
+    background: #2A2F4A;
+    position: fixed;
+    top: 10px;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    margin: 10% auto;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+}
+
+.boxFlex {
+    display: flex;
+}
+
+.zutatenImg {
+    width: 50%;
+    display: flex;
+    padding: 0 3rem;
+}
+
+.zutatenImg img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.zutaten {
+    width: 50%;
+    color: white;
+    align-self: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.zutaten h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    align-self: center;
+    margin-bottom: 2rem;
+}
+
+.zutaten ul {
+    list-style-type: none;
+    line-height: 1.8rem;
+}
+
+.zutaten p {
+    margin-top: 2rem;
+    line-height: 1.4rem;
+    width: 90%;
+}
+
+.closebox {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.3rem;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
 
 /* Footer Style */
 
@@ -153,53 +285,3 @@ font-family: 'Playfair Display', serif;
     font-size: 1.7em;
     font-family: 'Montserrat', sans-serif;
 }
-
-.DrinkCard {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.DrinkCardDiv {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.DrinkCardDiv img {
-    height: 50vh;
-    width: 90%;
-}
-
-
-/* //////////////// */
-.box{
-    width: 800px;
-    height: 400px;
-    background: #262B46;
-    position: fixed; 
-    top: 10px;
-    left: 0; 
-    right: 0; 
-    bottom: 20px; 
-    margin: 10% auto;
-}
-
-.zutatenImg{
-  height: 20px; 
-  width: 20px; 
-
-}  
-.zutaten ul{
-    width: 30%;
-    list-style-type: none;
-    color: white;
-   /*  font-size: 30px; */
-    padding-left: 50%;
-}
-
-.closebox {
-    position: absolute; 
-    right: 10px;
-    top: 10px;
-    color: green;
-    font-size: 30px;
-    }

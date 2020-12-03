@@ -3,24 +3,32 @@ import React from 'react'
 
 class Model extends React.Component {
 
-        state={
-            isLoaded: false,
-            data: null,
-            error: null
-        }
-    componentDidMount(){
+    state = {
+        isLoaded: false,
+        data: null,
+        error: null
+    }
+    componentDidMount() {
         /* console.log(this.props)  */
         fetch("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + this.props.data.idDrink)
-        .then(res => res.json())
-        .then(
-            (result) => {
-                let Frinalresult = null
-                if(result.drinks && result.drinks.length > 0 ){
-                    Frinalresult = result.drinks[0]
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    let Frinalresult = null
+                    if (result.drinks && result.drinks.length > 0) {
+                        Frinalresult = result.drinks[0]
+                    }
+                    this.setState({
+                        isLoaded: true,
+                        data: Frinalresult
+                    });
                 }
+
+            )
+            .catch((error) => {
                 this.setState({
                     isLoaded: true,
-                    data: Frinalresult
+                    error
                 });
             }
             

@@ -11,7 +11,7 @@ class VodkaSeite extends Component {
             error: null,
             isLoaded: false,
             items: [],
-            model: {show: false, items: null}
+            model: { show: false, items: null }
         }
     }
     componentDidMount() {
@@ -34,32 +34,34 @@ class VodkaSeite extends Component {
     }
     toggleModel = (items) => {
 
-        const modal = {show:false , items:null};
-        if (items){
-            modal.show = true ;
-            modal.items = {...items};
+        const modal = { show: false, items: null };
+        if (items) {
+            modal.show = true;
+            modal.items = { ...items };
         }
-        this.setState({model: modal})
-     }
+        this.setState({ model: modal })
+    }
     render() {
         return (
             <div>
-            {this.state.model.show && <Model
-             data= {this.state.model.items}
-             toggle={this.toggleModel}
-             />} 
-            <section className="VodkaSeite">
-             <Header /> 
-             {this.state.isLoaded ?
-                    this.state.items.drinks.map(drinks => <DrinkCard
-                        key={drinks.idDrink}
-                        drinksData={drinks}
-                        toggleModal= {() => this.toggleModel(drinks)}
-                    />)
-                    : <div>Loading ...</div>
-                    }
-                <Footer />
-            </section>
+                {this.state.model.show && <Model
+                    data={this.state.model.items}
+                    toggle={this.toggleModel}
+                />}
+                <section className="VodkaSeite">
+                    <Header />
+                    <div className="gridContainer">
+                        {this.state.isLoaded ?
+                            this.state.items.drinks.map(drinks => <DrinkCard
+                                key={drinks.idDrink}
+                                drinksData={drinks}
+                                toggleModal={() => this.toggleModel(drinks)}
+                            />)
+                            : <div>Loading ...</div>
+                        }
+                    </div>
+                    <Footer />
+                </section>
             </div>
         );
     }

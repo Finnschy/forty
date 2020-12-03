@@ -11,7 +11,7 @@ class GinSeite extends Component {
             error: null,
             isLoaded: false,
             items: [],
-            model: {show: false, items: null}
+            model: { show: false, items: null }
 
         };
     }
@@ -46,31 +46,32 @@ class GinSeite extends Component {
     
 
     render() {
-            /* console.log(this.state.items) */
+        /* console.log(this.state.items) */
         return (
-        <div>
-            {this.state.model.show && <Model
-             data= {this.state.model.items}
-             toggle={this.toggleModel}
-             />} 
-            <section className="GinSeite">
-                <Header />
-                {this.state.isLoaded ?
-                    this.state.items.drinks.map(drinks => <DrinkCard
-                        key={drinks.idDrink}
-                        drinksData={drinks}
-                        toggleModal= {() => this.toggleModel(drinks)}
-                    />)
-                    : <div>Loading ...</div>
-                    }
-                <Footer />
-            </section>
-        </div>);
+            <div>
+                {this.state.model.show && <Model
+                    data={this.state.model.items}
+                    toggle={this.toggleModel}
+                />}
+                <section className="GinSeite">
+                    <Header />
+                    <div className="gridContainer">
+                        {this.state.isLoaded ?
+                            this.state.items.drinks.map(drinks => <DrinkCard
+                                key={drinks.idDrink}
+                                drinksData={drinks}
+                                toggleModal={() => this.toggleModel(drinks)}
+                            />)
+                            : <div>Loading ...</div>
+                        }
+                    </div>
+                    <Footer />
+                </section>
+            </div>);
     }
 }
-    
+
 
 
 export default GinSeite;
-
 
