@@ -24,6 +24,7 @@ class GinSeite extends Component {
                         isLoaded: true,
                         items: result
                     });
+                   /*  console.log(result) */
                 },
                 (error) => {
                     this.setState({
@@ -36,7 +37,7 @@ class GinSeite extends Component {
     toggleModel = (items) => {
        /*  console.log(items) */
         const modal = {show:false , items:null};
-        console.log(modal)
+       /*  console.log(modal) */
         if (items){
             modal.show = true ;
             modal.items = {...items};
