@@ -53,7 +53,7 @@ class GinSeite extends Component {
                 />}
                 <section className="GinSeite">
                     <Header />
-                    <div className="gridContainer">
+                    <div className="gridContainer fadeIn">
                         {this.state.isLoaded ?
                             this.state.items.drinks.map(drinks => <DrinkCard
                                 key={drinks.idDrink}

@@ -11,10 +11,12 @@ import ScotchSeite from "./components/ScotchSeite";
 import NoAlkoholSeite from "./components/NoAlkoholSeite";
 import RandomDrink from "./components/RandomDrinkSeite"
 import Home from './components/Home';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <Router>
+      <Navbar />
       <Switch>
         <Route path="/gin" component={GinSeite} />
         <Route path="/vodka" component={VodkaSeite} />

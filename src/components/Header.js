@@ -1,11 +1,13 @@
-import {
-    Link
-} from "react-router-dom";
+// import {
+//     Link
+// } from "react-router-dom";
+
+import * as FaIcons from "react-icons/fa"
 
 const Header = () => {
     return (
         <header className="header">
-            <nav className="headerNav">
+            {/* <nav className="headerNav">
                 <ul>
                     <li >
                         <Link className="forty" to="/">FORTY</Link>
@@ -14,18 +16,19 @@ const Header = () => {
                         <Link className="menu" to="/">MENU</Link>
                     </li>
                 </ul>
-            </nav>
+            </nav> */}
 
-            <div className="Searchdiv">
-                <h1>Cocktails & Getränke!</h1>
-                <p>Herzlich Willkommen in der Welt der Cocktails und Getränke!</p>
+            <div className="Searchdiv fadeIn">
+                <h1>Cocktails & Drinks!</h1>
+                <p>Welcome to the world of Cocktails and Drinks!</p>
                 <form action="">
                     <input type="text" id="typeSomething" placeholder="type something" />
                     <button id="search" onClick="search">Search</button>
                 </form>
             </div>
-
-            <div className="removImg"></div>
+            <div className="iconBox">
+                <FaIcons.FaAngleDoubleDown />
+            </div>
         </header>
     );
 }
