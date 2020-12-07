@@ -1,15 +1,11 @@
-
 import React from 'react'
-
 class Model extends React.Component {
-
     state = {
         isLoaded: false,
         data: null,
         error: null
     }
     componentDidMount() {
-        /* console.log(this.props)  */
         fetch("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + this.props.data.idDrink)
             .then(res => res.json())
             .then(
@@ -23,7 +19,6 @@ class Model extends React.Component {
                         data: Frinalresult
                     });
                 }
-
             )
             .catch((error) => {
                 this.setState({
@@ -31,17 +26,10 @@ class Model extends React.Component {
                     error
                 });
             })
-
-
     }
-
     render() {
-        console.log(this.state)
         return (
-
-
             <div className="box fadeIn2">
-                {/* <div className="closebox" onClick={() => this.props.toggle()}>X</div> */}
                 {this.state.data && this.state.isLoaded &&
                     <div className="boxFlex">
                         <h2 className="visibleMobile">{this.state.data.strDrink}</h2>

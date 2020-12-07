@@ -29,4 +29,9 @@ export const SidebarData = [
          path:"/randomdrink",
          cName: "nav-text"
      },
+     {
+        title: "Suchen ",
+        path:"/Suchendrink",
+        cName: "nav-text"
+    },
 ]

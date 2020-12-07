@@ -14,6 +14,7 @@ class GinSeite extends Component {
             model: { show: false, items: null }
 
         };
+        this.onSubmitForm = this.onSubmitForm.bind(this);
     }
     componentDidMount() {
         fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin")
@@ -24,6 +25,7 @@ class GinSeite extends Component {
                         isLoaded: true,
                         items: result
                     });
+                   /*  console.log(result) */
                 },
                 (error) => {
                     this.setState({
@@ -33,18 +35,45 @@ class GinSeite extends Component {
                 }
             )
     }
-    toggleModel = (items) => {
-        const modal = { show: false, items: null };
-        if (items) {
-            modal.show = true;
-            modal.items = { ...items };
-
+    onSubmitForm = inputSearchValue => {
+         console.log(inputSearchValue); 
+        let path = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin"
+        
+        if(inputSearchValue) {
+            path = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i="+ inputSearchValue
         }
-        this.setState({ model: modal })
-    }
 
+        fetch(path)
+        .then(res => res.json())
+        .then(
+            (result) => {
+                // console.log(result)
+                  this.setState({
+                    isLoaded: true,
+                    items: result
+                });   
+            },
+            (error) => {
+                console.log(error)
+                  this.setState({
+                    isLoaded: true,
+                    error
+                }); 
+            }
+        )
+  };
+
+    toggleModel = (items) => {
+       /*  console.log(items) */
+        const modal = {show:false , items:null};
+       /*  console.log(modal) */
+        if (items){
+            modal.show = true ;
+            modal.items = {...items};
+        }
+             this.setState({model: modal})
+     }
     render() {
-        /* console.log(this.state.items) */
         return (
             <div>
                 {this.state.model.show && <Model
@@ -52,13 +81,15 @@ class GinSeite extends Component {
                     toggle={this.toggleModel}
                 />}
                 <section className="GinSeite">
-                    <Header />
+                    <Header 
+                     onSubmitForm = {this.onSubmitForm}
+                     />
                     <div className="gridContainer fadeIn">
                         {this.state.isLoaded ?
                             this.state.items.drinks.map(drinks => <DrinkCard
                                 key={drinks.idDrink}
                                 drinksData={drinks}
-                                toggleModal={() => this.toggleModel(drinks)}
+                                toggleModal={this.toggleModel}
                             />)
                             : <div>Loading ...</div>
                         }

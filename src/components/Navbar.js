@@ -46,16 +46,7 @@ function Navbar() {
                     <li className="nav-text">
                         <Link to="/randomdrink">Random Drink</Link>
                     </li>
-                    {/* {SidebarData.map((item, index) => {
-                    console.log(item);
-                    return (
-                        <li key={index} className={item.cName}>
-                            <Link to={item.path}>
-                                {item.title}
-                            </Link>
-                        </li>
-                    )
-                })} */}
+               
                 </ul>
             </nav>
         </>
