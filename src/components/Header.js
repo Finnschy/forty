@@ -7,17 +7,6 @@ import * as FaIcons from "react-icons/fa"
 const Header = () => {
     return (
         <header className="header">
-            {/* <nav className="headerNav">
-                <ul>
-                    <li >
-                        <Link className="forty" to="/">FORTY</Link>
-                    </li>
-                    <li >
-                        <Link className="menu" to="/">MENU</Link>
-                    </li>
-                </ul>
-            </nav> */}
-
             <div className="Searchdiv fadeIn">
                 <h1>Cocktails & Drinks!</h1>
                 <p>Welcome to the world of Cocktails and Drinks!</p>

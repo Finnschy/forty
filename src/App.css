@@ -13,6 +13,10 @@ font-family: 'Playfair Display', serif;
     font-family: 'Montserrat', sans-serif;
 }
 
+#root {
+    width: 100%;
+}
+
 a {
     cursor: pointer;
 }
@@ -24,13 +28,6 @@ a {
     position: relative;
     z-index: 998;
 }
-
-/* .headerNav ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-between;
-    padding: 2% 3%;
-} */
 
 .forty, .menu {
     color: white;
@@ -45,7 +42,7 @@ a {
 }
 
 .Searchdiv {
-    padding-left: 3%;
+    padding-left: 3rem;
     margin-top: 6.5%;
 }
 
@@ -103,13 +100,12 @@ a {
 .MainSection {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* grid-template-rows: 60vh 60vh 60vh; */
 }
 
 .Ginlink, .Vodkalink, .Rumlink, .Scotchlink, .Nonlink, .Randomlink {
     display: flex;
-    padding: 15rem 10rem;
-    /* justify-content: center; */
+    padding: 15rem 0;
+    justify-content: center;
     align-items: center;
     text-decoration: none;
     font-size: 5rem;
@@ -117,6 +113,13 @@ a {
     font-family: 'Playfair Display', serif;
     font-weight: 600;
 }
+
+/* .DrinkCard {
+    display: flex;
+    justify-content: space-evenly;
+    
+} */
+
 
 .Ginlink, .DrinkCard:nth-child(6n+1) {
     background-color: #6FC3DF;
@@ -145,12 +148,14 @@ a {
 .gridContainer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    
 }
 
 .DrinkCardDiv {
     display: flex;
-    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
+    width: 100%;
 }
 
 .DrinkCardDiv img {
@@ -162,17 +167,17 @@ a {
     writing-mode: tb-rl;
     display: flex;
     align-items: center;
+    
 }
 
 .inner {
     transform: rotate(180deg);
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     color: #fff;
-    height: 20rem;
-    padding-right: 3rem;
-    /* border: 1px solid red; */
+    height: 32rem;
+    /* padding-right: 3rem; */
 }
 
 .DrinkCard:nth-child(2n) .DrinkCardDiv {
@@ -180,13 +185,13 @@ a {
 }
 
 .DrinkCard:nth-child(2n) .DrinkCardDiv p {
-    padding-left: 5rem;
+    /* padding-left: 5rem; */
 }
 
 .DrinkCard img {
-    max-height: 50vh;
+    max-height: 45vh;
     object-fit: contain;
-    padding: 5rem;
+    padding: 4rem;
 }
 
 /* Modal Style */
@@ -316,6 +321,64 @@ a {
     }
 }
 
+@media only screen and (max-width: 1024px) {
+    .Ginlink, .Vodkalink, .Rumlink, .Scotchlink, .Nonlink, .Randomlink {
+        font-size: 3rem;
+        padding: 8rem 0;
+    }
+
+    .DrinkCard img {
+        max-height: 39vh;
+        padding: 0;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    .Searchdiv h1 {
+        font-size: 6rem;
+    }
+
+    .Searchdiv p {
+        font-size: 1rem;
+    }
+    .MainSection, .gridContainer {
+        grid-template-columns: 1fr;
+    }
+
+    .DrinkCard img {
+        max-height: 45vh;
+        padding: 0;
+    }
+
+    /* .GinSeite .gridContainer .DrinkCard:nth-of-type(1) .DrinkCardDiv .inner{
+        font-size: 1.5rem;
+    }  */
+
+    .iconBox {
+        margin-bottom: 2rem;
+    }
+
+    #footer h1 {
+        font-size: 2.5rem;
+    }   
+
+    #footer p {
+        font-size: 1rem;
+    }
+
+    .box {
+        width: 45.375rem;
+        height: 33.25rem;
+    }
+
+    .boxFlex h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
 @media only screen and (max-width: 480px) {
     .header {
         width: 100%;
@@ -368,10 +431,11 @@ a {
     .inner {
         font-size: 1.5rem;
         height: 14rem;
+        
     }
-    .DrinkCard:nth-child(2n) .DrinkCardDiv p {
+    /* .DrinkCard:nth-child(2n) .DrinkCardDiv p {
         padding-left: 2rem;
-    }
+    } */
     .box {
         width: 400px;
         height: 92vh;   
