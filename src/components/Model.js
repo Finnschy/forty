@@ -6,7 +6,6 @@ class Model extends React.Component {
         error: null
     }
     componentDidMount() {
-        /* console.log(this.props)  */ 
         fetch("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + this.props.data.idDrink)
             .then(res => res.json())
             .then(
@@ -26,31 +25,31 @@ class Model extends React.Component {
                     isLoaded: true,
                     error
                 });
-                /* console.log(error) */
             })
     }
     render() {
-        /* console.log(this.state) */
         return (
-            <div className="box">
-                {/* <div className=“closebox” onClick={() => this.props.toggle()}>X</div> */}
+            <div className="box fadeIn2">
                 {this.state.data && this.state.isLoaded &&
                     <div className="boxFlex">
+                        <h2 className="visibleMobile">{this.state.data.strDrink}</h2>
                         <div className="zutatenImg">
+                            
                             <img src={this.state.data.strDrinkThumb} alt="" />
                         </div>
                         <div className="zutaten">
-                            <h2>{this.state.data.strDrink}</h2>
+                            <h2 className="visibleDesktop">{this.state.data.strDrink}</h2>
+                            <h3>Ingredients</h3>
                             <ul>
-                                <li>{this.state.data.strIngredient1}</li>
-                                <li>{this.state.data.strIngredient2}</li>
-                                <li>{this.state.data.strIngredient3}</li>
-                                <li>{this.state.data.strIngredient4}</li>
-                                <li>{this.state.data.strIngredient5}</li>
-                                <li>{this.state.data.strIngredient6}</li>
-                                <li>{this.state.data.strIngredient7}</li>
-                                <li>{this.state.data.strIngredient8}</li>
-                                <li>{this.state.data.strIngredient9}</li>
+                                <li>{this.state.data.strMeasure1} {this.state.data.strIngredient1}</li>
+                                <li>{this.state.data.strMeasure2} {this.state.data.strIngredient2}</li>
+                                <li>{this.state.data.strMeasure3} {this.state.data.strIngredient3}</li>
+                                <li>{this.state.data.strMeasure5} {this.state.data.strIngredient5}</li>
+                                <li>{this.state.data.strMeasure4} {this.state.data.strIngredient4}</li>
+                                <li>{this.state.data.strMeasure6} {this.state.data.strIngredient6}</li>
+                                <li>{this.state.data.strMeasure7} {this.state.data.strIngredient7}</li>
+                                <li>{this.state.data.strMeasure8} {this.state.data.strIngredient8}</li>
+                                <li>{this.state.data.strMeasure9} {this.state.data.strIngredient9}</li>
                             </ul>
                             <p>{this.state.data.strInstructions}</p>
                         </div>

@@ -13,6 +13,7 @@ class RandomDrink extends Component {
             items: [],
             model: { show: false, items: null }
         }
+        this.onSubmitForm = this.onSubmitForm.bind(this);
     }
     componentDidMount() {
         fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
@@ -32,8 +33,33 @@ class RandomDrink extends Component {
                 }
             )
     }
+    onSubmitForm = inputSearchValue => {
+        console.log(inputSearchValue); 
+       let path = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
+       
+       if(inputSearchValue) {
+           path = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i="+ inputSearchValue
+       }
+       fetch(path)
+       .then(res => res.json())
+       .then(
+           (result) => {
+               // console.log(result)
+                 this.setState({
+                   isLoaded: true,
+                   items: result
+               });   
+           },
+           (error) => {
+               console.log(error)
+                 this.setState({
+                   isLoaded: true,
+                   error
+               }); 
+           }
+       )
+ };
     toggleModel = (items) => {
-
         const modal = { show: false, items: null };
         if (items) {
             modal.show = true;
@@ -43,14 +69,15 @@ class RandomDrink extends Component {
     }
     render() {
         return (
-
             <div>
                 {this.state.model.show && <Model
                     data={this.state.model.items}
                     toggle={this.toggleModel}
                 />}
                 <section className="RandomDrink">
-                    <Header />
+                    <Header 
+                    onSubmitForm = {this.onSubmitForm}
+                    />
                     <div className="gridContainer">
                         {this.state.isLoaded ?
                             this.state.items.drinks.map(drinks => <DrinkCard
