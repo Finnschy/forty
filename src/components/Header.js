@@ -24,7 +24,7 @@ class Header extends Component{
                     <form action="">
                         <input type="text" id="typeSomething" onChange={this.onInputchange}
                         value={this.state.search}
-                        placeholder="type something" />
+                        placeholder="search for ingredients" />
 
                         <button id="search" onClick= {(e)=> {
                             e.preventDefault();

@@ -184,10 +184,6 @@ a {
     flex-direction: row-reverse;
 }
 
-.DrinkCard:nth-child(2n) .DrinkCardDiv p {
-    /* padding-left: 5rem; */
-}
-
 .DrinkCard img {
     max-height: 45vh;
     object-fit: contain;
